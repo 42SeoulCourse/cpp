@@ -10,46 +10,60 @@ PhoneBook::~PhoneBook(void)
     return ;
 }
 
-PhoneBook::PhoneBook( void )
+int PhoneBook::check_pb(PhoneBook pb)
 {
-    std::cout << "Enter your first name: ";
-    std::cin >> this->first_name;
-    std::cout << "Enter your last name: ";
-    std::cin >> this->last_name;
-    std::cout << "Enter your nick name: ";
-    std::cin >> this->nickname;
-    std::cout << "Enter your phone_number: ";
-    std::cin >> this->phone_number;
+    int i;
+
+    i = 0;
+    while (i < 8)
+    {
+        if (pb.contacts[i].isnull(pb.contacts[i]))
+            break;
+        i++;
+    }
+    return (i);
 }
 
-PhoneBook::PhoneBook(
-                std::string first_name,
-                std::string last_name,
-                std::string nickname,
-                std::string phone_number )
+PhoneBook PhoneBook::del_one(PhoneBook pb)
 {
-    std::cout << "New Entry!!" << std::endl;
-    this->first_name = first_name;
-    this->last_name = last_name;
-    this->nickname = nickname;
-    this->phone_number = phone_number;
+    int i;
+
+    i = 0;
+    while (i < 7)
+    {
+        pb.contacts[i] = pb.contacts[i + 1];
+        i++;
+    }
+    return (pb);
 }
 
-std::string PhoneBook::getFirstName( void )
+void PhoneBook::display(PhoneBook pb)
 {
-    return ( this->first_name );
-}
+    int i;
+    int max;
+    std::string index;
 
-void        PhoneBook::print_info( )
-{
-    std::cout << this->first_name << std::endl;
-    std::cout << this->last_name << std::endl;
-    std::cout << this->nickname << std::endl;
-    std::cout << this->phone_number << std::endl;
-
-}
-
-PhoneBook::~PhoneBook( )
-{
-    std::cout << "Finsh" << std::endl;
+    i = 0;
+    if (pb.contacts[0].isnull(pb.contacts[0]))
+    {
+        std::cout << "Your Phonebook is empty!!\n";
+        return;
+    }
+    std::cout << "|-------------------------------------------|" << std::endl;
+    std::cout << "|     Index|" << "First name|" << " Last name|" << "  Nickname|" << std::endl;
+    std::cout << "|-------------------------------------------|" << std::endl;
+    while (i < 8)
+    {
+        if (pb.contacts[i].isnull(pb.contacts[i]))
+            break;
+        std::cout << "|" << std::setw(10) << i << "|";
+        contacts[i].print_info(contacts[i], 1);
+        std::cout << "|";
+        contacts[i].print_info(contacts[i], 2);
+        std::cout << "|";
+        contacts[i].print_info(contacts[i], 3);
+        std::cout << "|\n";
+        std::cout << "|-------------------------------------------|" << std::endl;
+        i++;
+    }
 }
