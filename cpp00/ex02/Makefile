@@ -6,7 +6,6 @@ RM=rm -rf
 
 SRC= test.cpp
 CLASS= Account.cpp \
-	   Account.hpp
 	
 SRC_OBJS=$(SRC:.cpp=.o)
 CLASS_OBJS=$(CLASS:.cpp=.o)
@@ -19,7 +18,7 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 debug :
-	$(CXX) $(SRC) $(CLASS) -g3 -o megaphone
+	$(CXX) $(SRC) $(CLASS) -g3 -o account
 
 clean :
 	$(RM) $(OBJS)
