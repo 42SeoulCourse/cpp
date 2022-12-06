@@ -8,8 +8,10 @@ Account::Account(void) {
 }
 
 Account::~Account(void) {
-    std::cout << "Account Dead" << std::endl;
-    return ;
+    _displayTimestamp();
+    std::cout << "index:" << this->_accountIndex << ";";
+    std::cout << "amount:" << this->_amount << ";";
+    std::cout << "closed" << std::endl;
 }
 
 Account::Account(int initial_deposit) {
