@@ -15,8 +15,8 @@ int main(void)
         std::cout << "Enter a cmd: ";
         std::getline(std::cin, cmd);
         cmd.erase(0, cmd.find_first_not_of(" \t\v\f\r"));
-        // while (isspace(cmd[cmd.length() - 1]))
-        //     cmd.erase(cmd.find_last_not_of(" \t\v\f\r") + 1, cmd[cmd.length() - 1]);
+        while (isspace(cmd[cmd.length() - 1]))
+            cmd.erase(cmd.find_last_not_of(" \t\v\f\r") + 1, cmd[cmd.length() - 1]);
         std::cout << cmd << std::endl;
         if (cmd == "EXIT")
             break ;

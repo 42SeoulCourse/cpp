@@ -23,6 +23,13 @@ class Contact
         int     isnull(Contact contact);
         void    display_complete(Contact contact);
         void    print_info(Contact contact, int i);
+    
+    private:
+        std::string first_name;
+        std::string last_name;
+        std::string nickname;
+        std::string phone;
+        std::string secret;
 };
 
 #endif

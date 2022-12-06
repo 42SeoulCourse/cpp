@@ -10,6 +10,15 @@ PhoneBook::~PhoneBook(void)
     return ;
 }
 
+int isnum(std::string s, int i)
+{
+    if (s.size() != 1)
+        return (0);
+    if (48 <= s[0] && s[0] <= 48 + i)
+        return (1);
+    return (0);
+}
+
 int PhoneBook::check_pb(PhoneBook pb)
 {
     int i;
@@ -65,5 +74,25 @@ void PhoneBook::display(PhoneBook pb)
         std::cout << "|\n";
         std::cout << "|-------------------------------------------|" << std::endl;
         i++;
+    }
+    max = i - 1;
+    while (42)
+    {
+        std::cout << "Please select the index for more info:";
+        getline(std::cin, index);
+        index.erase(0, index.find_first_not_of(" \t\v\f\r"));
+        while (std::isspace(index[index.length() - 1]))
+            index.erase(index.find_last_not_of(" \t\v\r\f") + 1, index[index.length() - 1]);
+        if (index.empty())
+            continue ;
+        if (isnum(index, max))
+            i = (int)index[0] - 48;
+        else
+        {
+            std::cout << "Please enter a valid number >:(" << std::endl;
+            continue;
+        }
+        pb.contacts[i].display_complete(pb.contacts[i]);
+        break ;
     }
 }
