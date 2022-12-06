@@ -93,9 +93,33 @@ void    Account::makeDeposit( int deposit ) {
     std::cout << "nb_deposit:" << this->_nbDeposits << std::endl;
 }
 
+int Account::checkAmount( void ) const {
+    if (this->_amount < 0)
+        return (1);
+    return (0);
+}
 
+bool    Account::makeWithdrawal( int withdrawal ) {
+    Account::_displayTimestamp();
+    std::cout << "index:" << this->_accountIndex << ";";
+    std::cout << "p_amount:" << this->_amount << ";";
 
-
+    this->_amount -= withdrawal;
+    if (Account::checkAmount()) {
+        this->_amount += withdrawal;
+        std::cout << "withdrawal:refused" << std::endl;
+        return (false);
+    }
+    Account::_totalAmount -= withdrawal;
+    this->_nbWithdrawals++;
+    Account::_totalNbWithdrawals++;
+    std::cout << "withdrawal:" << withdrawal << ";";
+    std::cout << "amount:" << this->_amount << ";";
+    std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+    return (true);
+};
+// [20221206_185111] index:0;p_amount:47;withdrawal:refused
+// index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1
 // void    
 
 // static int	getNbAccounts( void );
