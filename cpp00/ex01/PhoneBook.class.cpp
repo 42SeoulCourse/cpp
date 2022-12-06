@@ -19,6 +19,38 @@ int isnum(std::string s, int i)
     return (0);
 }
 
+std::string add_info(std::string msg)
+{
+    std::string dest;
+
+    std::cout << msg;
+    while (42)
+    {
+        std::getline(std::cin, dest);
+        dest.erase(0, dest.find_first_not_of(" \t\v\f\r"));
+        while (isspace(dest[dest.length() - 1]))
+            dest.erase(dest.find_last_not_of(" \t\v\r\f") + 1, dest[dest.length() - 1]);
+        if (dest.empty())
+            std::cout << "Empty field not valid! Please, try again." << std::endl << msg;
+        else
+            break;
+    }
+    return (dest);
+}
+
+PhoneBook PhoneBook::add_i(PhoneBook pb, int i)
+{
+    Contact new_contact(
+        add_info("First name: "),
+        add_info("Last name: "),
+        add_info("Nickname: "),
+        add_info("Phone number: "),
+        add_info("Darkest secret: ")
+    );
+    pb.contacts[i] = new_contact;
+    return pb;
+}
+
 int PhoneBook::check_pb(PhoneBook pb)
 {
     int i;

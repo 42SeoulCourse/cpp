@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zpalfi <zpalfi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:07:42 by zpalfi            #+#    #+#             */
-/*   Updated: 2022/10/10 12:46:20 by zpalfi           ###   ########.fr       */
+/*   Updated: 2022/12/06 12:10:21 by jaekim           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int isnum(std::string s, int i)
     return (0);
 }
 
+// 
 std::string  add_info(std::string msg)
 {
     std::string dest;
@@ -50,6 +51,7 @@ std::string  add_info(std::string msg)
     return (dest);
 }
 
+// 
 PhoneBook    PhoneBook::add_i(PhoneBook pb, int i)
 {
     Contact new_contact(add_info("First name:"), add_info("Last name:"),

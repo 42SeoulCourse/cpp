@@ -19,7 +19,7 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 debug :
-	$(CC) $(SRC) $(CLASS) -g3  -fsanitize=address -o megaphone
+	$(CC) -g3 $(SRC) $(CLASS) -o megaphone
 
 clean :
 	$(RM) $(OBJS)

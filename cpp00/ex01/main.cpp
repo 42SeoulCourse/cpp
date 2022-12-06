@@ -23,7 +23,7 @@ int main(void)
         else if (cmd == "ADD")
         {
             i = pb.check_pb(pb);
-            if (i < 7)
+            if (i > 7)
             {
                 i = -42;
                 while (i == -42)
