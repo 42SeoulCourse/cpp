@@ -1,7 +1,7 @@
 NAME=phonebook
 
 CXX=g++
-CXXFLAGS= -Wall -Wextra -Werror
+CXXFLAGS= -Wall -Wextra -Werror -std=c++98
 RM=rm -rf
 
 SRC= main.cpp
@@ -19,14 +19,14 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 debug :
-	$(CXX) -g3 $(SRC) $(CLASS) -o megaphone
+	$(CXX) $(SRC) $(CLASS) -g3 -o megaphone
 
 clean :
 	$(RM) $(OBJS)
 
 fclean : clean
 	$(RM) $(NAME)
-	$(RM) megaphone.dSYM
+	$(RM) phonebook.dSYM
 
 re : fclean all
 
