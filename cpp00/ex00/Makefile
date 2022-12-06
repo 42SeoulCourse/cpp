@@ -1,22 +1,22 @@
 NAME=megaphone
 
-CC=g++
-CFLAGS= -Wall -Wextra -Werror
+CXX=g++
+CXXFLAGS= -Wall -Wextra -Werror -std=c++98
 RM=rm -rf
 
 SRC= megaphone.cpp
 	
-SRC_OBJS=$(SRC:.c=.o)
+SRC_OBJS=$(SRC:.cpp=.o)
 
 OBJS= $(SRC_OBJS)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 all : $(NAME)
 
 debug :
-	$(CC) $(SRC) $(UTILS) -g3  -fsanitize=address -o megaphone
+	$(CXX) $(SRC) $(UTILS) -g3  -fsanitize=address -o megaphone
 
 clean :
 	$(RM) $(OBJS)
