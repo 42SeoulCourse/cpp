@@ -47,7 +47,7 @@ PhoneBook PhoneBook::add_i(PhoneBook pb, int i)
         add_info("Phone number: "),
         add_info("Darkest secret: ")
     );
-    pb.contacts[i] = new_contact;
+    pb._contacts[i] = new_contact;
     return pb;
 }
 
@@ -58,7 +58,7 @@ int PhoneBook::check_pb(PhoneBook pb)
     i = 0;
     while (i < 8)
     {
-        if (pb.contacts[i].isnull(pb.contacts[i]))
+        if (pb._contacts[i].isnull(pb._contacts[i]))
             break;
         i++;
     }
@@ -72,7 +72,7 @@ PhoneBook PhoneBook::del_one(PhoneBook pb)
     i = 0;
     while (i < 7)
     {
-        pb.contacts[i] = pb.contacts[i + 1];
+        pb._contacts[i] = pb._contacts[i + 1];
         i++;
     }
     return (pb);
@@ -85,7 +85,7 @@ void PhoneBook::display(PhoneBook pb)
     std::string index;
 
     i = 0;
-    if (pb.contacts[0].isnull(pb.contacts[0]))
+    if (pb._contacts[0].isnull(pb._contacts[0]))
     {
         std::cout << "Your Phonebook is empty!!\n";
         return;
@@ -95,14 +95,14 @@ void PhoneBook::display(PhoneBook pb)
     std::cout << "|-------------------------------------------|" << std::endl;
     while (i < 8)
     {
-        if (pb.contacts[i].isnull(pb.contacts[i]))
+        if (pb._contacts[i].isnull(pb._contacts[i]))
             break;
         std::cout << "|" << std::setw(10) << i << "|";
-        contacts[i].print_info(contacts[i], 1);
+        _contacts[i].print_info(_contacts[i], 1);
         std::cout << "|";
-        contacts[i].print_info(contacts[i], 2);
+        _contacts[i].print_info(_contacts[i], 2);
         std::cout << "|";
-        contacts[i].print_info(contacts[i], 3);
+        _contacts[i].print_info(_contacts[i], 3);
         std::cout << "|\n";
         std::cout << "|-------------------------------------------|" << std::endl;
         i++;
@@ -124,7 +124,7 @@ void PhoneBook::display(PhoneBook pb)
             std::cout << "Please enter a valid number >:(" << std::endl;
             continue;
         }
-        pb.contacts[i].display_entire_info(pb.contacts[i]);
+        pb._contacts[i].display_entire_info(pb._contacts[i]);
         break ;
     }
 }

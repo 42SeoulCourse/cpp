@@ -18,7 +18,7 @@ class PhoneBook
         PhoneBook    add_i(PhoneBook pb, int i);
 
     private:
-        Contact contacts[8];
+        Contact _contacts[8];
 };
 
 #endif

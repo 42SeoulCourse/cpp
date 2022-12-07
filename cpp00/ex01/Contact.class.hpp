@@ -25,11 +25,11 @@ class Contact
         void    print_info(Contact contact, int i);
     
     private:
-        std::string first_name;
-        std::string last_name;
-        std::string nickname;
-        std::string phone;
-        std::string secret;
+        std::string _first_name;
+        std::string _last_name;
+        std::string _nickname;
+        std::string _phone;
+        std::string _secret;
 };
 
 #endif
