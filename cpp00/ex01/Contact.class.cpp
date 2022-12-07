@@ -51,7 +51,7 @@ void    Contact::print_info(Contact contact, int i)
     }
 }
 
-void    Contact::display_complete(Contact contact)
+void    Contact::display_entire_info(Contact contact)
 {
     std::cout << "First name: " << contact.first_name << std::endl;
     std::cout << "Last name: " << contact.last_name << std::endl;

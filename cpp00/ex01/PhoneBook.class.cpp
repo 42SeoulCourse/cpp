@@ -124,7 +124,7 @@ void PhoneBook::display(PhoneBook pb)
             std::cout << "Please enter a valid number >:(" << std::endl;
             continue;
         }
-        pb.contacts[i].display_complete(pb.contacts[i]);
+        pb.contacts[i].display_entire_info(pb.contacts[i]);
         break ;
     }
 }

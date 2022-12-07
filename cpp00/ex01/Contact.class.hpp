@@ -21,7 +21,7 @@ class Contact
 
         Contact add(Contact contact);
         int     isnull(Contact contact);
-        void    display_complete(Contact contact);
+        void    display_entire_info(Contact contact);
         void    print_info(Contact contact, int i);
     
     private:
