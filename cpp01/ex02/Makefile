@@ -1,3 +1,3 @@
-SRCS = main.cpp Zombie.cpp
+SRCS = main.cpp
 TARGET = zombie
 include ../template.mk
