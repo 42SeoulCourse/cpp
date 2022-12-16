@@ -4,8 +4,8 @@ int main(int argc, char **argv)
 {
 	if (argc == 1)
 	{
-		Zombie *horde = zombieHorde(10, "YodaZombie");
-		Zombie *horde2 = zombieHorde(10, "PikachuZombie");
+		Zombie *horde = zombieHorde(5, "YodaZombie");
+		Zombie *horde2 = zombieHorde(5, "PikachuZombie");
 
 		delete [] horde;
 		delete [] horde2;
