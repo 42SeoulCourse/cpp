@@ -26,7 +26,7 @@ int Fixed::getRawBits(void) const {
   return (this->_integer);
 }
 
-void  Fixed::setRawBits(int const raw) {
+void Fixed::setRawBits(int const raw) {
   std::cout << "setRawBits member function called" << std::endl;
   this->_integer = raw;
 }
