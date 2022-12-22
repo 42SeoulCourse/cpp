@@ -5,7 +5,7 @@
 
 class Weapon {
  private:
-  std::string const _type;
+  std::string _type;
 
  public:
   Weapon(void);
