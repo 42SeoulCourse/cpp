@@ -4,9 +4,13 @@ Weapon::Weapon(void) { std::cout << "Weapon created.  Default." << std::endl; }
 
 Weapon::~Weapon(void) { std::cout << "Weapon destroyed" << std::endl; }
 
-Weapon::Weapon(std::string type) : _type(type) {
+Weapon::Weapon(const std::string type) : _type(type) {
   std::cout << "Weapon [ " << type << " ] is Created" << std::endl;
   return;
+}
+
+Weapon::Weapon(void *a) {
+  if (!a) return;
 }
 
 const std::string& Weapon::getType(void) const { return this->_type; }
