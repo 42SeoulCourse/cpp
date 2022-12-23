@@ -1,0 +1,114 @@
+#include "./ClapTrap.hpp"
+
+ClapTrap::ClapTrap(void)
+    : _name("undefined"),
+      _hit_points(10),
+      _energy_points(10),
+      _attack_damage(0) {
+  std::cout << "Default constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const std::string name)
+    : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0) {
+  std::cout << "ClapTrap created name : [ " << name << " ]" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &src) {
+  std::cout << "Copy constructor called" << std::endl;
+  *this = src;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
+  // this 를 확인하는 조건문이 필요할까?
+  if (this != &rhs) {
+    _name = rhs._name;
+    _hit_points = rhs._hit_points;
+    _energy_points = rhs._energy_points;
+    _attack_damage = rhs._energy_points;
+  }
+  return *this;
+}
+
+ClapTrap::~ClapTrap(void) {
+  std::cout << "Destructor called name : [ " << this->_name << " ]"
+            << std::endl;
+  return;
+}
+
+std::iostream &operator<<(std::ostream &o, const ClapTrap &claptrap) {
+  std::cout << "overload 된 operator= 작동 " << std::endl;
+  o << claptrap.getName();
+}
+
+const std::string &ClapTrap::getName(void) const { return (this->_name); }
+
+// 공격 시 hit point 가 0 일 때 (체력)
+// 공격 시 energy point 가 0일 때 (공격 시 필요한 에너지)
+void ClapTrap::attack(const std::string &target) {
+  if (this->_hit_points == 0 || this->_energy_points == 0) {
+    std::cout << "ClapTrap " << this->_name
+              << " can't attack target ! (lack of hit Points or energy Points) "
+              << "hit Points : " << this->_hit_points
+              << ", energy Points : " << this->_energy_points << std::endl;
+    return;
+  }
+  --(this->_energy_points);
+  std::cout << "ClapTrap " << this->_name << "attacks " << target
+            << ", causing " << this->_attack_damage << " points of damage!"
+            << std::endl;
+  return;
+}
+
+// 공격 받기 전, hit point 가 이미 0 일 때
+// 공격 받았을 시, hit point 가 0 이하가 될 때
+// 공격 받았을 시, hit point 가 1 이상이 될 때
+void ClapTrap::takeDamage(unsigned int amount) {
+  if (this->_hit_points == 0) {
+    std::cout << "ClapTrap " << this->_name
+              << " has no hit points ( hit points : " << this->_hit_points
+              << " )" << std::endl;
+  } else if (this->_hit_points <= amount) {
+    std::cout << "ClapTrap " << this->_name << " take " << amount
+              << "damage. And hit points become under 0 ( hit points : "
+              << (int)amount - this->_hit_points << " )"
+              << ", hit points will become 0." << std::endl;
+    this->_hit_points = 0;
+  } else {
+    std::cout << "ClapTrap " << this->_name << " take " << amount
+              << "damege. And hit points become" << this->_hit_points - amount
+              << std::endl;
+    this->_hit_points -= amount;
+  }
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+  if (this->_hit_points == 0 || this->_energy_points == 0) {
+    std::cout << "ClapTrap" << this->_name
+              << " can't repair. There is no hit points or energy points ( hit "
+                 "points : "
+              << this->_hit_points
+              << " energy points : " << this->_energy_points << std::endl;
+    return;
+  }
+  --(this->_energy_points);
+  std::cout << "ClapTrap " << this->_name << " repaired hit points "
+            << this->_hit_points << " to " << this->_hit_points + amount
+            << std::endl;
+  this->_hit_points += amount;
+}
+
+// - ClapTrap 이 공격하면, 타겟은 <attack damage> 만큼 hit points 를 잃는다.
+// - ClapTrap 이 스스로 고치면, <amount> 만큼 hit points 를 를 얻는다.
+// - 공격과 수리는 각각 1 에너지 비용이 든다. ClapTrap은 hit points 나 energy
+// points 가 없으면 아무것도 할 수 없다.
+// - 모든 멤버 함수는 어떤 일이 일어나는지 메시지를 출력한다.
+//     - ex) attack()
+
+//         ClapTrap <name> attacks <target>, causing <damage> points of damage!
+
+// - 생성자들과 소멸자 또한 메시지를 출력한다.
+// - 올바르게 작동하는지 테스트를 만들고 실행해라.
+
+// void attack(const std::string &target);
+// void takeDamage(unsigned int amount);
+// void beRepaired(unsigned int amount);
