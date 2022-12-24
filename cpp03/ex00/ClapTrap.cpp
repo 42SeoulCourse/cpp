@@ -35,9 +35,10 @@ ClapTrap::~ClapTrap(void) {
   return;
 }
 
-std::iostream &operator<<(std::ostream &o, const ClapTrap &claptrap) {
-  std::cout << "overload 된 operator= 작동 " << std::endl;
+std::ostream &operator<<(std::ostream &o, const ClapTrap &claptrap) {
+  std::cout << "overload 된 operator= 작동 " << std::endl << std::endl;
   o << claptrap.getName();
+  return (o);
 }
 
 const std::string &ClapTrap::getName(void) const { return (this->_name); }
@@ -47,14 +48,16 @@ const std::string &ClapTrap::getName(void) const { return (this->_name); }
 void ClapTrap::attack(const std::string &target) {
   if (this->_hit_points == 0 || this->_energy_points == 0) {
     std::cout << "ClapTrap " << this->_name
-              << " can't attack target ! (lack of hit Points or energy Points) "
-              << "hit Points : " << this->_hit_points
-              << ", energy Points : " << this->_energy_points << std::endl;
+              << " can't attack target ! (No hit Points or energy Points)"
+              << "\n( Hit Points : " << this->_hit_points
+              << ", Energy Points : " << this->_energy_points  << " )"<< std::endl
+              << std::endl;
     return;
   }
   --(this->_energy_points);
-  std::cout << "ClapTrap " << this->_name << "attacks " << target
+  std::cout << "ClapTrap " << this->_name << " attacks " << target
             << ", causing " << this->_attack_damage << " points of damage!"
+            << std::endl
             << std::endl;
   return;
 }
@@ -65,17 +68,20 @@ void ClapTrap::attack(const std::string &target) {
 void ClapTrap::takeDamage(unsigned int amount) {
   if (this->_hit_points == 0) {
     std::cout << "ClapTrap " << this->_name
-              << " has no hit points ( hit points : " << this->_hit_points
-              << " )" << std::endl;
+              << " has no hit points.\n( hit points : " << this->_hit_points
+              << " )" << std::endl
+              << std::endl;
   } else if (this->_hit_points <= amount) {
     std::cout << "ClapTrap " << this->_name << " take " << amount
-              << "damage. And hit points become under 0 ( hit points : "
-              << (int)amount - this->_hit_points << " )"
-              << ", hit points will become 0." << std::endl;
+              << " damage. And hit points become under 0. \n( hit points : "
+              << (int)(this->_hit_points - amount) << " and will become 0. )"
+              << std::endl
+              << std::endl;
     this->_hit_points = 0;
   } else {
     std::cout << "ClapTrap " << this->_name << " take " << amount
-              << "damege. And hit points become" << this->_hit_points - amount
+              << " damege. And hit points become " << this->_hit_points - amount
+              << std::endl
               << std::endl;
     this->_hit_points -= amount;
   }
@@ -83,16 +89,19 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
   if (this->_hit_points == 0 || this->_energy_points == 0) {
-    std::cout << "ClapTrap" << this->_name
-              << " can't repair. There is no hit points or energy points ( hit "
-                 "points : "
-              << this->_hit_points
-              << " energy points : " << this->_energy_points << std::endl;
+    std::cout
+        << "ClapTrap" << this->_name
+        << " can't repair. (No hit points or energy points)\n( Hit "
+           "points : "
+        << this->_hit_points << ", Energy points : " << this->_energy_points
+        << " )" << std::endl
+        << std::endl;
     return;
   }
   --(this->_energy_points);
   std::cout << "ClapTrap " << this->_name << " repaired hit points "
             << this->_hit_points << " to " << this->_hit_points + amount
+            << std::endl
             << std::endl;
   this->_hit_points += amount;
 }

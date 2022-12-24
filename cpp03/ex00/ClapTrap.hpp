@@ -26,6 +26,6 @@ class ClapTrap {
 };
 
 // target name 을 읽어와야하기 때문에 << 연산자 오버로딩이 필요하다.
-std::iostream &operator<<(std::ostream &o, const ClapTrap &claptrap);
+std::ostream &operator<<(std::ostream &o, const ClapTrap &claptrap);
 
 #endif

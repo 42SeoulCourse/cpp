@@ -1,4 +1,4 @@
-NAME=zombie
+NAME=ClapTrap
 
 CXX=c++
 CXXFLAGS= -Wall -Wextra -Werror -std=c++98
