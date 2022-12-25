@@ -3,12 +3,11 @@
 int main(){
     // 생성
     ClapTrap claptrap("Jaekim");
-
     // 복사 생성
     ClapTrap copy_claptrap(claptrap);
 
     // attack test
-    claptrap.attack("Tar");
+    claptrap.attack("Enemy");
 
     // takedamage test
     claptrap.takeDamage(8);
