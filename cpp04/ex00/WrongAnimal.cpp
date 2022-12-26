@@ -5,7 +5,7 @@ WrongAnimal::WrongAnimal(void) : _type("Default") {
 }
 
 WrongAnimal::WrongAnimal(std::string type) : _type(type) {
-    std::cout << "[ " << type << " ] created." << std::endl;
+  std::cout << "[ " << type << " ] created by WrongAnimal" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& src) {

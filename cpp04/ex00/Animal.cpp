@@ -5,7 +5,7 @@ Animal::Animal(void) : _type("Default") {
 }
 
 Animal::Animal(std::string type) : _type(type) {
-    std::cout << "[ " << type << " ] created." << std::endl;
+    std::cout << "[ " << type << " ] created by Animal class" << std::endl;
 }
 
 Animal::Animal(const Animal &src) {

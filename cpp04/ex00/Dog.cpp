@@ -1,15 +1,18 @@
 #include "./Dog.hpp"
 
-Dog::Dog(void) : Animal("Default") {
-  std::cout << "Dog created. Default." << std::endl;
+Dog::Dog(void) : Animal("Dog") {
+  std::cout << "[ " << this->_type << " ] created. Default." << std::endl;
 }
 
 Dog::Dog(const Dog& src) {
-  std::cout << "Copy constructor called. " << std::endl;
+  std::cout << " [" << this->_type << " ] copy constructor called. "
+            << std::endl;
   *this = src;
 }
 
-Dog::~Dog(void) { std::cout << "Dog destroyed." << std::endl; }
+Dog::~Dog(void) {
+  std::cout << "[ " << this->_type << " ] destroyed." << std::endl;
+}
 
 Dog& Dog::operator=(const Dog& rhs) {
   if (this != &rhs) {

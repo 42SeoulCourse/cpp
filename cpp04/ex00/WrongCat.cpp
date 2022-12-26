@@ -1,6 +1,6 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void) : WrongAnimal("Default") {
+WrongCat::WrongCat(void) : WrongAnimal("WrongCat") {
   std::cout << "WrongCat created. Default." << std::endl;
 }
 
@@ -19,6 +19,5 @@ WrongCat& WrongCat::operator=(const WrongCat& rhs) {
 }
 
 void WrongCat::makeSound(void) const {
-  std::cout << "wrong.. meee❗️"
-            << std::endl;
+  std::cout << "wrong.. meee❗️" << std::endl;
 }
