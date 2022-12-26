@@ -32,21 +32,9 @@ int main(void) {
     // deep copy test
     Cat cat = Cat();
     Cat copy_cat = cat;
-    // Brain *cat_brain = cat.getBrain();
-    // Brain *copy_cat_brain = copy_cat.getBrain();
-    // std::cout << "address compare" << std::endl;
-    // std::cout << cat_brain << "," << copy_cat_brain << std::endl;
-    // cat_brain->setIdea(99, "hi");
     cat.getBrain()->setIdea(6, "hi");
     std::cout << cat.getBrain()->getIdea(6) << std::endl;
     std::cout << copy_cat.getBrain()->getIdea(6) << std::endl;
 
     system("leaks Animal");
 }
-
-// Student s1 = Student("Kim", 18);
-// 	Student s2 = s1;
- 
-// 	cout << s1.name << " " << s1.age << endl;
-// 	cout << s2.name << " " << s2.age << endl;
-// }
