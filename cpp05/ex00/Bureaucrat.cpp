@@ -16,6 +16,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 // 초기화 리스트가 맞는지, 여기서 하는게 맞는지..? grade = this->_grade;
 }
 
+// 초기화 리스트???
+// Bureaucrat::Bureaucrat(const Bureaucrat & src) : name(src.getName()), grade(src.getGrade())
 Bureaucrat::Bureaucrat(const Bureaucrat &src) {
   std::cout << "Copy constructor called. " << std::endl;
   *this = src;
