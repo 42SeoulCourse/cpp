@@ -4,7 +4,7 @@ int main() {
   ClapTrap a("Jaekim");
   ScavTrap b("malibu");
 
-//   멤버 변수 값 확인
+  //   멤버 변수 값 확인
   std::cout << "name : " << a << std::endl;
   std::cout << "hitpoints : " << a.getHitPoints() << std::endl;
   std::cout << "energy points : " << a.getEnergyPoints() << std::endl;

@@ -5,7 +5,7 @@ FragTrap::FragTrap(void) : ClapTrap("Default", 100, 100, 30) {
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30) {
-  std::cout << "Default FragTrap constructor called" << std::endl;
+  std::cout << "[ " << name << " ] is created from FragTrap" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &rhs) {

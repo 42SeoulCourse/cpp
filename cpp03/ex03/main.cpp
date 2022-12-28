@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-int main(){
+int main(void) {
     DiamondTrap b("malibu");
 
     std::cout << "hitpoints : " << b.getHitPoints() << std::endl;

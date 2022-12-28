@@ -5,8 +5,7 @@ ScavTrap::ScavTrap(void) : ClapTrap("Default", 100, 50, 20) {
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20) {
-  std::cout << "Default ScavTrap constructor called [ " << this->_name << " ]"
-            << std::endl;
+  std::cout << "[ " << name << " ] is created from ScavTrap" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {

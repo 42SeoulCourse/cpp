@@ -20,7 +20,7 @@ class ClapTrap {
 
   ClapTrap(std::string name, unsigned int _hit_points,
            unsigned int _energy_points, unsigned int _attack_damage);
-  // target name 을 읽어와야함...
+           
   const std::string  getName(void) const;
   unsigned int       getHitPoints(void) const;
   unsigned int       getEnergyPoints(void) const;
@@ -30,7 +30,6 @@ class ClapTrap {
   void               beRepaired(unsigned int amount);
 };
 
-// target name 을 읽어와야하기 때문에 << 연산자 오버로딩이 필요하다.
 std::ostream &operator<<(std::ostream &o, const ClapTrap &claptrap);
 
 #endif
