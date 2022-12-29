@@ -17,10 +17,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 }
 
 // 초기화 리스트???
-// Bureaucrat::Bureaucrat(const Bureaucrat & src) : name(src.getName()), grade(src.getGrade())
-Bureaucrat::Bureaucrat(const Bureaucrat &src) {
+Bureaucrat::Bureaucrat(const Bureaucrat & src) : _name(src.getName()), _grade(src.getGrade()) {
   std::cout << "Copy constructor called. " << std::endl;
-  *this = src;
 }
 
 Bureaucrat::~Bureaucrat(void) {
