@@ -13,13 +13,13 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
   if (grade > LOWEST_GRADE) {
     throw(Bureaucrat::GradeTooLowException());
   }
-// 초기화 리스트가 맞는지, 여기서 하는게 맞는지..? grade = this->_grade;
+  // 초기화 리스트가 맞는지, 여기서 하는게 맞는지..? grade = this->_grade;
 }
 
 // 초기화 리스트??
-Bureaucrat::Bureaucrat(const Bureaucrat &src) {
+Bureaucrat::Bureaucrat(const Bureaucrat &src)
+    : _name(src.getName()), _grade(src.getGrade()) {
   std::cout << "Copy constructor called. " << std::endl;
-  *this = src;
 }
 
 Bureaucrat::~Bureaucrat(void) {
@@ -67,16 +67,22 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
   return ("❗️Bureaucrat exception❗️ Grade is under the Minimum !!");
 }
 
-// void  Bureaucrat::signForm(const Form &form) const {
-//   if ()
-//   {
-//     /* code */
-//   }
-  
-// //             <bureaucrat> signed <form>
+void Bureaucrat::signForm(Form &form) const {
+  if (form.getIsSigned()) {
+    std::cout << form.getName() << " is already signed!" << std::endl;
+    return;
+  }
+  try {
+    form.beSigned(*this);
+    if (form.getIsSigned()) {
+      std::cout << this->getName() << " signed " << form.getName() << std::endl;
+    }
 
-// //             아니면
-
-// //             <bureaucrat> couldn’t sign <form> because <reason>
-
-// }
+  } catch (std::exception &e) {
+    std::cout << this->getName() << " couldn't sign " << form.getName()
+              << ". Because " << e.what() << std::endl;
+    std::cout << "My grade : " << this->getGrade()
+              << " , Needed Grade to Sign : " << form.getGradeToSign()
+              << std::endl;
+  }
+}

@@ -1,25 +1,36 @@
 #include "./Form.hpp"
 
-Form::Form(void) : _name("Default"), _grade(150) {
+Form::Form(void)
+    : _name("Default"),
+      _grade_to_sign(LOWEST_GRADE),
+      _grade_to_execute(LOWEST_GRADE),
+      _is_signed(false) {
   std::cout << "Form created. Default." << std::endl;
   return;
 }
 
-Form::Form(std::string const name, int grade)
-    : _name(name), _grade(grade) {
-  if (grade < HIGHEST_GRADE) {
+Form::Form(const std::string name, const int grade_to_sign,
+           const int grade_to_execute)
+    : _name(name),
+      _grade_to_sign(grade_to_sign),
+      _grade_to_execute(grade_to_execute),
+      _is_signed(false) {
+  if (grade_to_sign < HIGHEST_GRADE || grade_to_execute < HIGHEST_GRADE) {
     throw(Form::GradeTooHighException());
   }
-  if (grade > LOWEST_GRADE) {
+  if (grade_to_execute > LOWEST_GRADE || grade_to_execute > LOWEST_GRADE) {
     throw(Form::GradeTooLowException());
   }
-// 초기화 리스트가 맞는지, 여기서 하는게 맞는지..? grade = this->_grade;
+  // 초기화 리스트가 맞는지, 여기서 하는게 맞는지..? grade = this->_grade;
 }
 
 // 초기화 리스트??
-Form::Form(const Form &src) {
+Form::Form(const Form &src)
+    : _name(src.getName()),
+      _grade_to_sign(src.getGradeToSign()),
+      _grade_to_execute(src.getGradeToExecute()),
+      _is_signed(src.getIsSigned()) {
   std::cout << "Copy constructor called. " << std::endl;
-  *this = src;
 }
 
 Form::~Form(void) {
@@ -27,28 +38,42 @@ Form::~Form(void) {
   return;
 }
 
-const std::string Form::getName(void) const { return (this->_name); }
-
-int Form::getGrade(void) const { return (this->_grade); }
-
 Form &Form::operator=(const Form &rhs) {
   if (this != &rhs) {
-    std::cout << "Copy Assignment operator can't copy Const value(name)"
+    std::cout << "Copy Assignment operator can't copy Const value(name, grades)"
               << std::endl;
-    this->_grade = rhs._grade;
+    this->_is_signed = rhs._is_signed;
   }
   return *this;
 }
 
 std::ostream &operator<<(std::ostream &o, Form const &rhs) {
-  o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
+  o << "Form name : " << rhs.getName() << ". Signed : " << rhs.getIsSigned()
+    << ". Grade needed to sign : " << rhs.getGradeToSign()
+    << ". Grade needed to execute : " << rhs.getGradeToExecute() << std::endl;
   return (o);
 }
 
+std::string Form::getName() const { return this->_name; };
+
+bool Form::getIsSigned() const { return this->_is_signed; };
+
+int Form::getGradeToSign() const { return this->_grade_to_sign; };
+
+int Form::getGradeToExecute() const { return this->_grade_to_execute; };
+
+void Form::beSigned(const Bureaucrat &bureaucrat) {
+  if (bureaucrat.getGrade() <= this->getGradeToSign()) {
+    this->_is_signed = true;
+    return;
+  }
+  throw Form::GradeTooLowException();
+}
+
 const char *Form::GradeTooHighException::what() const throw() {
-  return ("❗️Bureaucrat exception❗️ Grade is over the Max !!");
+  return ("❗️Form exception❗️ Grade is too High !!");
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
-  return ("❗️Bureaucrat exception❗️ Grade is under the Minimum !!");
+  return ("❗️Form exception❗️ Grade is too Low !!");
 }

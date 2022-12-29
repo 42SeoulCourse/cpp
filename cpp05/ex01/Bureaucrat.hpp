@@ -4,11 +4,11 @@
 # include <stdexcept>
 # include <iostream>
 # include <string>
+# include "./Form.hpp"
 
 # define HIGHEST_GRADE 1
 # define LOWEST_GRADE 150
 
-// ./Form include 안해도 됨????
 class Form;
 
 class Bureaucrat {
@@ -26,11 +26,10 @@ class Bureaucrat {
   const std::string getName(void) const;
   int               getGrade(void) const;
 
-  void signForm(const Form &form) const;
+  void signForm(Form &form) const;
   void incrementGrade(void);
   void decrementGrade(void);
 
-  // 예를 바깥에 선언하면 어떻게 됨??
   class GradeTooHighException : public std::exception {
     virtual const char *what() const throw();
   };

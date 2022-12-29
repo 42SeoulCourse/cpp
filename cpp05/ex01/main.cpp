@@ -1,94 +1,34 @@
 #include "Bureaucrat.hpp"
 
-// void	testBasic(void)
-// {
-// 	Bureaucrat	bob("bob", 149);
-
-// 	std::cout << bob << std::endl;
-// 	bob.decrementGrade();
-// 	std::cout << bob << std::endl;
-// 	bob.incrementGrade();
-// 	bob.incrementGrade();
-// 	bob.incrementGrade();
-// 	std::cout << bob << std::endl;
-// }
-
-// void	testExceptionLow(void)
-// {
-// 	Bureaucrat	bob("bob", 151);
-// }
-
-// void	testExceptionHigh(void)
-// {
-// 	Bureaucrat	bob("bob", 0);
-// }
-
-void	testDownGrade(void)
-{
-	Bureaucrat	bob("bob", 2);
-	bob.incrementGrade();
-	std::cout << bob << std::endl;
-	bob.incrementGrade();
+void BasicTest() {
+    Form one = Form("One", 1, 90);
+    Bureaucrat man = Bureaucrat("man", 1);
+    std::cout << one;
+    man.signForm(one);
 }
 
-void	testUpGrade(void)
-{
-	Bureaucrat	bob("bob", 149);
-	bob.decrementGrade();
-	std::cout << bob << std::endl;
-	bob.decrementGrade();
+void GradeLowTest(){
+    Form one = Form("One", 1, 90);
+    Bureaucrat man = Bureaucrat("man", 30);
+    man.signForm(one);
 }
 
-int	main(void)
-{
-	// try
-	// {
-	// 	testBasic();
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
+void GradeAlreadySignedTest(){
+    Form one = Form("One", 36, 90);
+    Bureaucrat man = Bureaucrat("man", 30);
+    Bureaucrat man2 = Bureaucrat("man2", 34);
+    man.signForm(one);
+    man2.signForm(one);
+}
 
-	// std::cout << std::endl;
-	// try
-	// {
-	// 	testExceptionLow();
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-
-	// std::cout << std::endl;
-	// try
-	// {
-	// 	testExceptionHigh();
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
-	std::cout << std::endl;
-	try
-	{
-		testDownGrade();
-	}
-	catch (std::exception &e)
-	{
+int main(){
+    try {
+        // BasicTest();
+        // GradeLowTest();
+        GradeAlreadySignedTest();
+    }
+    catch (std::exception & e){
 		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << std::endl;
-	try
-	{
-		testUpGrade();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	return (0);
+    }
+    return 0;
 }
