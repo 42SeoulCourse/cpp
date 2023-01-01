@@ -1,7 +1,7 @@
 #include "./Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("Default"), _grade(150) {
-  std::cout << "Bureaucrat created. Default." << std::endl;
+  // std::cout << "Bureaucrat created. Default." << std::endl;
   return;
 }
 
@@ -19,11 +19,11 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 // 초기화 리스트??
 Bureaucrat::Bureaucrat(const Bureaucrat &src)
     : _name(src.getName()), _grade(src.getGrade()) {
-  std::cout << "Copy constructor called. " << std::endl;
+  // std::cout << "Copy constructor called. " << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void) {
-  std::cout << "Bureaucrat destroyed." << std::endl;
+  // std::cout << "Bureaucrat destroyed." << std::endl;
   return;
 }
 
@@ -78,7 +78,6 @@ void Bureaucrat::signForm(AForm &aform) const {
       std::cout << this->getName() << " signed " << aform.getName()
                 << std::endl;
     }
-
   } catch (std::exception &e) {
     std::cout << this->getName() << " couldn't sign " << aform.getName()
               << ". Because " << e.what() << std::endl;

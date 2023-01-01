@@ -6,7 +6,7 @@
 
 class ShrubberyCreationForm : public AForm {
  private:
-  std::string target;
+  std::string _target;
   static const int  SC_GRADE_TO_SIGN = 145;
   static const int  SC_GRADE_TO_EXEC = 137;
 
@@ -18,7 +18,7 @@ class ShrubberyCreationForm : public AForm {
   virtual ~ShrubberyCreationForm(void);
 
   void               execute(Bureaucrat const& executor) const;
-  const std::string& getTarget() const;
+  const std::string &getTarget() const;
 
   class FileIOException : public std::exception {
     virtual const char* what() const throw();

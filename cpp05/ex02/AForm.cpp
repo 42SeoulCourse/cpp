@@ -5,7 +5,7 @@ AForm::AForm(void)
       _grade_to_sign(LOWEST_GRADE),
       _grade_to_execute(LOWEST_GRADE),
       _is_signed(false) {
-  std::cout << "AForm created. Default." << std::endl;
+  // std::cout << "AForm created. Default." << std::endl;
   return;
 }
 
@@ -30,11 +30,11 @@ AForm::AForm(const AForm &src)
       _grade_to_sign(src.getGradeToSign()),
       _grade_to_execute(src.getGradeToExecute()),
       _is_signed(src.getIsSigned()) {
-  std::cout << "Copy constructor called. " << std::endl;
+  // std::cout << "Copy constructor called. " << std::endl;
 }
 
 AForm::~AForm(void) {
-  std::cout << "AForm destroyed." << std::endl;
+  // std::cout << "AForm destroyed." << std::endl;
   return;
 }
 

@@ -1,34 +1,28 @@
-#include "Bureaucrat.hpp"
-
-void BasicTest() {
-    Form one = Form("One", 1, 90);
-    Bureaucrat man = Bureaucrat("man", 1);
-    std::cout << one;
-    man.signForm(one);
-}
-
-void GradeLowTest(){
-    Form one = Form("One", 1, 90);
-    Bureaucrat man = Bureaucrat("man", 30);
-    man.signForm(one);
-}
-
-void GradeAlreadySignedTest(){
-    Form one = Form("One", 36, 90);
-    Bureaucrat man = Bureaucrat("man", 30);
-    Bureaucrat man2 = Bureaucrat("man2", 34);
-    man.signForm(one);
-    man2.signForm(one);
-}
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(){
-    try {
-        // BasicTest();
-        // GradeLowTest();
-        GradeAlreadySignedTest();
-    }
-    catch (std::exception & e){
-		std::cerr << e.what() << std::endl;
-    }
+        // PP
+    // Bureaucrat man = Bureaucrat("man", 20);
+    // PresidentialPardonForm pp = PresidentialPardonForm("target1");
+
+    // man.signForm(pp);
+    // man.executeForm(pp);
+
+    // RR
+    Bureaucrat woman = Bureaucrat("woman", 20);
+    RobotomyRequestForm rr = RobotomyRequestForm("target2");
+    woman.signForm(rr);
+    woman.executeForm(rr);
+
+    // SC 아스키파일 필요
+    // Bureaucrat human = Bureaucrat("woman", 20);
+    // ShrubberyCreationForm sc = ShrubberyCreationForm("target3");
+    // human.signForm(sc);
+    // human.executeForm(sc);
+
+
+    
     return 0;
 }
