@@ -7,6 +7,7 @@ RM=rm -rf
 SRCS=$(wildcard *.cpp)
 
 OBJS=$(SRCS:.cpp=.o)
+FILE = *_shrubbery
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
@@ -15,6 +16,7 @@ all : $(NAME)
 
 clean :
 	$(RM) $(OBJS)
+	if [ -e $(FILE) ]; then rm $(FILE) ; fi
 
 fclean : clean
 	$(RM) $(NAME)
