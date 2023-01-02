@@ -11,16 +11,16 @@ int main(){
     // man.executeForm(pp);
 
     // RR
-    Bureaucrat woman = Bureaucrat("woman", 20);
-    RobotomyRequestForm rr = RobotomyRequestForm("target2");
-    woman.signForm(rr);
-    woman.executeForm(rr);
+    // Bureaucrat woman = Bureaucrat("woman", 20);
+    // RobotomyRequestForm rr = RobotomyRequestForm("target2");
+    // woman.signForm(rr);
+    // woman.executeForm(rr);
 
-    // SC 아스키파일 필요
-    // Bureaucrat human = Bureaucrat("woman", 20);
-    // ShrubberyCreationForm sc = ShrubberyCreationForm("target3");
-    // human.signForm(sc);
-    // human.executeForm(sc);
+    // SC 
+    Bureaucrat human = Bureaucrat("woman", 20);
+    ShrubberyCreationForm sc = ShrubberyCreationForm("target3");
+    human.signForm(sc);
+    human.executeForm(sc);
 
 
     

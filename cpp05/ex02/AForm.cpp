@@ -54,7 +54,7 @@ std::ostream &operator<<(std::ostream &o, AForm const &rhs) {
   return (o);
 }
 
-std::string AForm::getName() const { return this->_name; };
+const std::string AForm::getName() const { return this->_name; };
 
 bool AForm::getIsSigned() const { return this->_is_signed; };
 

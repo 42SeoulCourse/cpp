@@ -20,7 +20,7 @@ class AForm {
   AForm& operator=(AForm const& rhs);
   virtual ~AForm(void);
 
-  std::string getName() const;
+  const std::string getName() const;
   bool        getIsSigned() const;
   int         getGradeToSign() const;
   int         getGradeToExecute() const;

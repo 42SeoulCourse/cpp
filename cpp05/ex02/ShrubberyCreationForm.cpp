@@ -40,7 +40,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   if (executor.getGrade() > this->getGradeToExecute()) {
     throw AForm::GradeTooLowException();
   }
-  std::ifstream ifs("ASCII.txt");
+  std::ifstream ifs("ASCII_tree.txt");
   if (!ifs.good()) {
     throw ShrubberyCreationForm::FileIOException();
   }
