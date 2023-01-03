@@ -21,10 +21,8 @@ Form::Form(const std::string name, const int grade_to_sign,
   if (grade_to_execute > LOWEST_GRADE || grade_to_execute > LOWEST_GRADE) {
     throw(Form::GradeTooLowException());
   }
-  // 초기화 리스트가 맞는지, 여기서 하는게 맞는지..? grade = this->_grade;
 }
 
-// 초기화 리스트??
 Form::Form(const Form &src)
     : _name(src.getName()),
       _grade_to_sign(src.getGradeToSign()),

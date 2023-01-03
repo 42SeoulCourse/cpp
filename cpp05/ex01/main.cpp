@@ -23,9 +23,9 @@ void GradeAlreadySignedTest(){
 
 int main(){
     try {
-        // BasicTest();
+        BasicTest();
         // GradeLowTest();
-        GradeAlreadySignedTest();
+        // GradeAlreadySignedTest();
     }
     catch (std::exception & e){
 		std::cerr << e.what() << std::endl;
