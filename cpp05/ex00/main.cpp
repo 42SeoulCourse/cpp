@@ -1,29 +1,29 @@
 #include "Bureaucrat.hpp"
 
-// void	testBasic(void)
-// {
-// 	Bureaucrat	bob("bob", 149);
+void	testBasic(void)
+{
+	Bureaucrat	bob("bob", 149);
 
-// 	std::cout << bob << std::endl;
-// 	bob.decrementGrade();
-// 	std::cout << bob << std::endl;
-// 	bob.incrementGrade();
-// 	bob.incrementGrade();
-// 	bob.incrementGrade();
-// 	std::cout << bob << std::endl;
-// }
+	std::cout << bob << std::endl;
+	bob.decrementGrade();
+	std::cout << bob << std::endl;
+	bob.incrementGrade();
+	bob.incrementGrade();
+	bob.incrementGrade();
+	std::cout << bob << std::endl;
+}
 
-// void	testExceptionLow(void)
-// {
-// 	Bureaucrat	bob("bob", 151);
-// }
+void	testExceptionLow(void)
+{
+	Bureaucrat	bob("bob", 151);
+}
 
-// void	testExceptionHigh(void)
-// {
-// 	Bureaucrat	bob("bob", 0);
-// }
+void	testExceptionHigh(void)
+{
+	Bureaucrat	bob("bob", 0);
+}
 
-void	testDownGrade(void)
+void	testIncrementGrade(void)
 {
 	Bureaucrat	bob("bob", 2);
 	bob.incrementGrade();
@@ -31,7 +31,7 @@ void	testDownGrade(void)
 	bob.incrementGrade();
 }
 
-void	testUpGrade(void)
+void	testDecrementGrade(void)
 {
 	Bureaucrat	bob("bob", 149);
 	bob.decrementGrade();
@@ -41,39 +41,9 @@ void	testUpGrade(void)
 
 int	main(void)
 {
-	// try
-	// {
-	// 	testBasic();
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-
-	// std::cout << std::endl;
-	// try
-	// {
-	// 	testExceptionLow();
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-
-	// std::cout << std::endl;
-	// try
-	// {
-	// 	testExceptionHigh();
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
-	std::cout << std::endl;
 	try
 	{
-		testDownGrade();
+		testBasic();
 	}
 	catch (std::exception &e)
 	{
@@ -83,7 +53,37 @@ int	main(void)
 	std::cout << std::endl;
 	try
 	{
-		testUpGrade();
+		testExceptionLow();
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+	try
+	{
+		testExceptionHigh();
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
+	std::cout << std::endl;
+	try
+	{
+		testIncrementGrade();
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+	try
+	{
+		testDecrementGrade();
 	}
 	catch (std::exception &e)
 	{

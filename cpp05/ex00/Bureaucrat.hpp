@@ -26,7 +26,6 @@ class Bureaucrat {
   void incrementGrade(void);
   void decrementGrade(void);
 
-  // 예를 바깥에 선언하면 어떻게 됨??
   class GradeTooHighException : public std::exception {
     virtual const char *what() const throw();
   };
@@ -39,20 +38,3 @@ class Bureaucrat {
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &bureaucrat);
 
 #endif
-
-// - Bureaucrat
-//     - const name
-//     - 1(highest) ~ 150(lowest) grade
-
-//         유효한 grade 가 아니면 예외를 던진다.
-
-//         - Bureaucrat::GradeTooHighException
-//         - Bureaucrat::GradeTooLowException
-// - getName() 과 getGrade()
-// - grade를 증가하고 감소하기 위한 2개의 멤버 함수
-//     - grade 가 범위를 벋어나면 예외 던짐
-// - 증가는 3 → 2 이다.
-// - try catch 를 이용해라
-// - << 연산자 오버로딩을 통해 출력해라
-
-//     ex. <name>, bureaucrat grade <grade>
