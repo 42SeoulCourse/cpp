@@ -1,7 +1,7 @@
 #include "./Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("Default"), _grade(150) {
-  std::cout << "Bureaucrat created. Default." << std::endl;
+  // std::cout << "Bureaucrat created. Default." << std::endl;
   return;
 }
 
@@ -17,11 +17,11 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src)
     : _name(src.getName()), _grade(src.getGrade()) {
-  std::cout << "Copy constructor called. " << std::endl;
+  // std::cout << "Copy constructor called. " << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void) {
-  std::cout << "Bureaucrat destroyed." << std::endl;
+  // std::cout << "Bureaucrat destroyed." << std::endl;
   return;
 }
 

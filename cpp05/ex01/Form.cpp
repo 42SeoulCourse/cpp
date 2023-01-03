@@ -5,7 +5,7 @@ Form::Form(void)
       _grade_to_sign(LOWEST_GRADE),
       _grade_to_execute(LOWEST_GRADE),
       _is_signed(false) {
-  std::cout << "Form created. Default." << std::endl;
+  // std::cout << "Form created. Default." << std::endl;
   return;
 }
 
@@ -28,11 +28,11 @@ Form::Form(const Form &src)
       _grade_to_sign(src.getGradeToSign()),
       _grade_to_execute(src.getGradeToExecute()),
       _is_signed(src.getIsSigned()) {
-  std::cout << "Copy constructor called. " << std::endl;
+  // std::cout << "Copy constructor called. " << std::endl;
 }
 
 Form::~Form(void) {
-  std::cout << "Form destroyed." << std::endl;
+  // std::cout << "Form destroyed." << std::endl;
   return;
 }
 

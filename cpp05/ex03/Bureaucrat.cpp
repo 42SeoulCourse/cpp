@@ -13,10 +13,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade)
   if (grade > LOWEST_GRADE) {
     throw(Bureaucrat::GradeTooLowException());
   }
-  // 초기화 리스트가 맞는지, 여기서 하는게 맞는지..? grade = this->_grade;
 }
 
-// 초기화 리스트??
 Bureaucrat::Bureaucrat(const Bureaucrat &src)
     : _name(src.getName()), _grade(src.getGrade()) {
   // std::cout << "Copy constructor called. " << std::endl;
