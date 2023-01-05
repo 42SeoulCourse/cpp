@@ -1,7 +1,7 @@
 #include "Conversion.hpp"
 
 Conversion::Conversion(void):
-	 _c(0), _i(0), _f(0.0f), _d(0.0),
+	_c(0), _i(0), _f(0.0f), _d(0.0),
 	_char(""), _int(""), _float(""), _double("")
 {
 	//std::cout << "Conversion created. Default." << std::endl;
