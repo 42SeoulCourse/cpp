@@ -1,18 +1,31 @@
 #include <iostream>
+#include <typeinfo>
+#include <exception>
 
-class Parent {};
+class Parent {public: virtual ~Parent(void) {}};
 class Child1 : public Parent {};
 class Child2 : public Parent {};
 
-class Unrelated {};
-
 int main(void) {
   Child1  a;
+  Parent *b = &a; // Implicit upcast -> Ok
 
-  Parent *b = &a;           // Implicit upcast cast
-  // Child1 *c = b;            // Implicit downcast -> No!
-  Child2 *d = static_cast<Child2 *>(b); // Explicit downcast
+  //Explicit downcast
+  Child1 *c = dynamic_cast<Child1 *>(b);
+  if ( c == NULL ) {
+    std::cout << "conversion is NOT Ok" << std::endl;
+  }
+  else {
+    std::cout << "conversion is Ok" << std::endl;
+  }
 
-  // Unrelated *e = static_cast<Child2 *>(b); // Explicit conversion -> No
+  //Explicit downcast
+  try {
+    Child2 &d = dynamic_cast<Child2 &>(*b);
+    std::cout << "conversion is Ok" << std::endl;
+  } catch (std::bad_cast &bc) {
+    std::cout << "conversion is NOT Ok: " << bc.what() << std::endl;
+    return 0;
+  }
   return 0;
 }
