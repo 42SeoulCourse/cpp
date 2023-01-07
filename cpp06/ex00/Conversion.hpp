@@ -2,46 +2,53 @@
 # define CONVERSION_HPP
 
 # include <iostream>
-
-# define CHAR_TYPE 0;
-# define INT_TYPE 1;
-# define FLOAT_TYPE 2;
-# define DOUBLE_TYPE 3;
-# define PSEUDO 4;
-# define WRONG_TYPE 5;
+# include <string>
+# include <cstdlib>
+# include <iomanip>
 
 class Conversion {
  private:
   std::string _input;
-  char        _c;
   int         _i;
   float       _f;
+  char        _c;
   double      _d;
 
-  std::string _char;
-  std::string _int;
-  std::string _float;
-  std::string _double;
+  static const int CHAR_TYPE = 1;
+  static const int FLOAT_TYPE = 2;
+  static const int DOUBLE_TYPE = 3;
+  static const int INT_TYPE = 4;
+  static const int PSEUDO = 5;
+  static const int INVALID = 6;
 
-
+  int  _type;
+  bool _isWrong;
 
  public:
   Conversion(void);
-  Conversion(const std::string input);
+  // Conversion(const std::string input);
   Conversion(const Conversion &src);
   Conversion& operator=(Conversion const &rhs);
   virtual ~Conversion(void);
 
-  void convert();
-  void displayChar() const;
-  void displayInt() const;
-  void displayFloat() const;
-  void displayDouble() const;
+  void detectType(char *input);
 
-  const int getType();
-  const bool      isPseudo(std::string input);
+	void convertData();
+	void printData() const;
+	void getInt() const;
+	void getFloat() const;
+	void getChar() const;
+	void getDouble() const;
+	int  getType() const;
+
+	void setType(int type);
+  const std::string &getInput() const;
+
+	void setInput(const std::string &input);
+  bool isPseudo(std::string str);
 };
 
 std::ostream& operator<<(std::ostream &o, Conversion const &rhs);
+std::string   convertLiteralToDouble(std::string input);
 
 #endif

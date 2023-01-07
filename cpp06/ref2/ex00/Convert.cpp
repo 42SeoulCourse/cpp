@@ -58,6 +58,7 @@ void Convert::detect_type(char *arg)
 		this->setType(PSEUDOLIT);
 		return;
 	}
+	// 
 	while(arg[i])
 	{
 		if (arg[i] == '-' && i == 0)
@@ -76,6 +77,7 @@ void Convert::detect_type(char *arg)
 	{
 		this->setType(CHAR);
 		this->c_arg = atoi(this->def.c_str());
+		std::cout << this->c_arg << std::endl;
 	}
 	else if (has_num == 1 && has_dot == 1 && has_f == 1) {
 		this->setType(FLOAT);
