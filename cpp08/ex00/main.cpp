@@ -1,48 +1,39 @@
-#include <iostream>
-#include <vector>
-#include <deque>
-#include <list>
-#include <set>
 #include "easyfind.hpp"
 
-template<typename T>
-void    do_test(T &container, int number)
-{
-    typename T::iterator    it = easyfind(container, number);
-
-    if ( it == container.end() )
-        std::cout << "No " << number << " in the container" << std::endl;
-    else
-        std::cout << "Found " << number << " on the index of " << std::distance( container.begin(), it ) << std::endl;
-}
-
-int main(void)
-{
-    std::cout << "--- A LIST ---" << std::endl;
-    std::list<int> lst;
-
-    for (int index = 0; index < 100; ++index)
-        lst.push_back(index * 2);
-    
-    do_test(lst, 16);
-    do_test(lst, 32);
-    do_test(lst, 65);
-
-    std::cout << std::endl << "--- A VECTOR ---" << std::endl;
+int main() {
+    std::cout << "/************ Vector test ************/" << std::endl;
     std::vector<int> vector;
 
-    for (int index = 0; index < 100; ++index)
-        vector.push_back(index * 2);
+    vector.push_back(1);
+    vector.push_back(2);
+    vector.push_back(3);
+    vector.push_back(4);
 
-    do_test(lst, 16);
-    do_test(lst, 32);
-    do_test(lst, 65);
+    try {
+      std::vector<int>::iterator value = easyfind(vector, 1);
+      std::cout << "The Value is " << *value << std::endl;
+      value = easyfind(vector, 5);
+      std::cout << "The Value is " << *value << std::endl;
+    } catch (const std::exception& e) {
+      std::cout << "🌈error🌈 Value does not exist in vector" << std::endl;
+    }
 
-    std::cout << std::endl << "--- A SET ---" << std::endl;
-    int ints[] = { 1, 2, 65 };
-    std::set<int> set(ints, ints + sizeof(ints) / sizeof(int));
+    std::cout << std::endl;
+    
+    std::cout << "/************ List test ************/" << std::endl;
+    std::list<int> list;
 
-    do_test(set, 16);
-    do_test(set, 32);
-    do_test(set, 65);
+    list.push_back(1);
+    list.push_back(2);
+    list.push_back(3);
+    list.push_back(4);
+
+    try {
+      std::list<int>::iterator value = easyfind(list, 1);
+      std::cout << "The Value is " << *value << std::endl;
+      value = easyfind(list, 5);
+      std::cout << "The Value is " << *value << std::endl;
+    } catch (const std::exception& e) {
+      std::cout << "🌈error🌈 Value does not exist in list" << std::endl;
+    }
 }
