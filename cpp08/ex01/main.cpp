@@ -16,9 +16,13 @@ int main(){
 
     int arr[] = {-1, 10, 20, 0, 100, 3};
     std::vector<int> _vec(arr, arr + sizeof(arr) / sizeof(int));
-
+    
     std::vector<int>::iterator start = _vec.begin();
     std::vector<int>::iterator end = _vec.end();
+    std::vector<int>::iterator iter;
+    for (iter = _vec.begin(); iter != _vec.end(); iter++) {
+        std::cout << "iter: " << *iter << std::endl;
+    }
 
     try{
         Span sp = Span(6);
